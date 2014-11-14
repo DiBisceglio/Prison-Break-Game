@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<!-- Scott DiBisceglio
+	 Fall 2014
+	 Text Based Adventure Game -->
+<head>
+	<title>
+		Prison Break v0.06
+	</title>
+	 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	 <meta name="author"			 content="Scott DiBisceglio"/>
+	<script type="text/javascript" src="navigation.js"></script>
+
+
+
+
+</head>
+<body background="background.jpg" onload="init();">
+
+<font size ="5.5" color="orange"> <h1> Prison Break: Operation Breakout!</h1></font>
+	
+	<br>
+	<textarea rows = "15" cols = "50" id = "taMain" readonly > 
+	</textarea>
+	<br>
+	<input type = "button" id = "btnNorth" value = "North" onclick = "movenorth();"/>
+	<input type = "button" id = "btnSouth" value = "South" onclick = "movesouth();" />
+	<input type = "button" id = "btnEast"  value = "East"  onclick = "moveeast();"/>
+	<input type = "button" id = "btnWest"  value = "West"  onclick = "movewest();"/>
+	<input type = "button" id = "btnHelp"  value = "Help"  onclick = "playerHelp();"/>
+	<input type = "button" id = "btnTake"  value = "Take"  onclick = "btngo_Click('TAKE');"/>
+	<input type = "button" id = "btnBag"   value = "Inventory" onclick = "btngo_Click('INVENTORY');"/>
+ <br>
+ 
+ <font size ="5.5" color="orange">Score: </font><textarea rows = "1" cols = "5" id = "scoreBox" readonly ></textarea>
+
+	<br>
+<font size ="5.5" color="orange">	Type in  "N" "S" "E" "W" and press "go" to move.</font>
+	<br>
+<font size ="5.5" color="orange">	Command: </font>
+	<input type="text"
+			id="txtCommand"
+			name="txtCommand" 
+			placeholder="Enter Command Here"
+			onkeypress="txtCommand_keyPress(event);">
+			
+	
+	<input type = "button"
+		   value = "go"
+		   onclick="btngo_Click();" /> 
+	<p>
+<font size ="5.5" color="orange">	Stuck? Contact an Admin </font><a href="mailto:Scott.DiBisceglio1@marist.edu" target="_blank">here</a>.
+    </p>
+	
+	<p>
+<font size ="5.5" color="orange">	Validate the Game </font> <a href="http://w3.org/validator" target="_blank">here</a>.
+    </p>
+	
+<font size ="5.5" color="orange">	<p><strong> Game Map </strong></p></font>
+	<img src="gamemap.jpg" width = "500" height = "300" alt="Game Map" />
+	
+	
+	</body>
+	</html>
+										
