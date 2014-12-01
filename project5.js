@@ -82,6 +82,13 @@ var itemKitchenKnife = new Item(4, "Kitchen Knife", "There is a knife here", fal
 
 var itemBeyonce = new Item(8, "Beyonce", "Beyonce is Here", false);
 
+// Items Array 
+var items = new Arrary();
+items[4] = itemKitchenKnife;
+items[6] = itemGuardUniform;
+items[8] = itemBeyonce;
+items[9] = itemPrisonKey;
+
 //Location arrary
 var locations = new Array( locations_0, 
 locations_1, 
