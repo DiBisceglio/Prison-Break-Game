@@ -10,11 +10,22 @@ var south = 1;
 var west = 2;
 var east = 3;
 
+
+// intiate the game
+function dispMsg(message){
+		var target= document.getElementById("taMain");
+		target.value = message + "\n\n" + target.value;
+  }
+  
+function init(){
+dispMsg(locations_0);
+}
+
 //location prototype
 function Location(_id, _name, _description, _hasItem) {
-this.id = id;
-this.name = name;
-this.description = description;
+this.id = _id;
+this.name = _name;
+this.description = _description;
 this.hasItem = _hasItem;
 this.item = function(){
 	if(this.hasItem && locations[nextLocation]){
@@ -24,9 +35,9 @@ this.item = function(){
 	}
 }
 	this.toString = function() {
-		var returnValue = ";
-		returnValue = this.description + " " + this.item();
-		return returnValue;
+		var returnValue = "";
+		returnVal = this.description + " " + this.item();
+		return returnVal;
 	}
 }
 
@@ -49,7 +60,7 @@ var locations_1 = new Location();
 locations_1.id = 1;
 locations_1.name = "The Gym";
 locations_1.description = "You have reached the gym, there are inmates working out all over.";
-location_1.hasItem = false;
+locations_1.hasItem = false;
 
 var locations_2 = new Location();
 locations_2.id = 2;
@@ -118,6 +129,3 @@ itemGuardUniform.name = "Uniform";
 itemGuardUniform.description = "";
 itemGuardUniform.isTaken = false;
 
-function init(){
-dispMsg(locations_0);
-}
