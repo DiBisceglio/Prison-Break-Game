@@ -129,3 +129,31 @@ itemGuardUniform.name = "Uniform";
 itemGuardUniform.description = "";
 itemGuardUniform.isTaken = false;
 
+//Location arrary
+var locations = new Array( locations_0, 
+locations_1, 
+locations_2, 
+locations_3,
+locations_4,
+locations_5,
+locations_6, 
+locations_7, 
+locations_8, 
+locations_9,
+locations_10) ;
+							
+// navigation
+var nav = new Array(/*  0 1 2 3 */
+			/* 0 */  [  1, 2, 3, 4 ],   
+			/* 1 */  [  -1, 0, 9, 6],
+		    /* 2 */  [ 0, 5, -1, -1],
+			/* 3 */  [ -1, -1, -1, 0],
+			/*  4 */ [ 6, 7, 0, 8],
+			/*  5 */ [ 2, -1, -1, -1],
+			/* 6  */ [ -1, 4, 1, -1],
+			/* 7  */ [ 4, -1, -1, -1],
+			/*  8 */ [-1, 10, 4, -1],
+			/*  9 */ [-1, -1, -1, 1],
+			/* 10 */ [ 8, -1, -1, -1]
+			);
+			
