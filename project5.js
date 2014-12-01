@@ -49,72 +49,29 @@ function Item (_id, _name, _description, _isTaken) {
 	this.isTaken = _isTaken;
 }
 
-//Locations 0-10
-var locations_0 = new Location();
-locations_0.id = 0;
-locations_0.name = "Prison Yard";
-locations_0.description = "You are standing in the middle of the prison yard.";
-locations_0.hasItem = false;
+//Locations 0-10'
+var locations_0 = new Location(0, "Prison Yard", "You are standing in the middle of the prison yard.", false );
 
-var locations_1 = new Location();
-locations_1.id = 1;
-locations_1.name = "The Gym";
-locations_1.description = "You have reached the gym, there are inmates working out all over.";
-locations_1.hasItem = false;
+var locations_1 = new Location(1, "The Gym", "You have reached the gym, there are inmates working out all over.", false);
 
-var locations_2 = new Location();
-locations_2.id = 2;
-locations_2.name = "The Commissary";
-locations_2.description = "You have reached the commissary, they are having a sale on paper clips!";
-locations_2.hasItem = false;
+var locations_2 = new Location(2, "The Commissary", "You have reached the commissary, they are having a sale on paper clips!", false);
 
-var locations_3 = new Location();
-locations_3.id = 3;
-locations_3.name = "The Mail Room";
-locations_3.description = "You enter the mail room, theres no mail there for you.";
-locations_3.hasItem = false;
+var locations_3 = new Location(3, "The Mail Room", "You enter the mail room, theres no mail there for you.", false );
 
-var locations_4 = new Location();
-locations_4.id = 4;
-locations_4.name = "Mess Hall";
-locations_4.description = "You have entered the mess hall, the food smells terrible but you find a knife on the floor.";
-locations_4.hasItem = true;
+var locations_4 = new Location(4, "Mess Hall", "You have entered the mess hall, the food smells terrible but you find a knife on the floor.", true);
 
-var locations_5 = new Location();
-locations_5.id = 5;
-locations_5.name = "Visting Room";
-locations_5.description = "You have entered the visiting room, no ever comes to visit you though.";
-locations_5.hasItem = false;
+var locations_5 = new Location(5, "Visiting Room", "You have entered the visiting room, no ever comes to visit you though.", false);
 
-var locations_6 = new Location();
-locations_6.id = 6;
-locations_6.name = "The Laundry Room";
-locations_6.description = "You have entered the laundry room, there is a guards uniform on the table."
-locations_6.hasItem = true;
+var locations_6 = new Location(6, "The Laundry Room", "You have entered the laundry room, there is a guards uniform on the table.", true);
 
-var locations_7 = new Location();
-locations_7.id = 7;
-locations_7.name = "The Warden's Office";
-locations_7.description = "You have reached the Wardens Office, theres nothing here.";
-locations_7.hasItem = false;
+var locations_7 = new Location(7, "The Warden's Office", "You have reached the Wardens Office, theres nothing here.", false );
 
-var locations_8 = new Location();
-locations_8.id = 8;
-locations_8.name = "The Classroom";
-locations_8.description = "You have entered the class room, and Beyonce is standing there.";
-locations_8.hasItem = true;
+var locations_8 = new Location(8, "The Classroom", "You have entered the class room, and Beyonce is standing there.", true);
 
-var locations_9 = new Location();
-locations_9.id = 7;
-locations_9.name = "The Garden";
-locations_9.description = "You have entered the garden, you see a shiny key behind the tomato plants.";
-locations_9.hasItem = true;
+var locations_9 = new Location(9, "The Garden", "You have entered the garden, you see a shiny key behind the tomato plants.", true);
 
-var locations_10 = new Location();
-locations_10.id = 10;
-locations_10.name = "The Front Gate";
-locations_10,description = "You have reached the front gate, you can see a light at the end that leads to freeedom.";
-locations_10.hasItem = false;
+var locations_10 = new Location(10, "The Front Gate", "You have reached the front gate, you can see a light at the end that leads to freeedom.", false);
+
 
 //Items
 var itemPrisonKey = new Item();
@@ -198,10 +155,10 @@ function btn_command(command){
 	if (command === "n" || command === "NORTH"){
 	command = north;
 } 
-else if (commandt === "s" || command === "SOUTH"){
+else if (command === "s" || command === "SOUTH"){
 	command = south;
 }
-else if (movement === "e" || command === "EAST"){
+else if (command === "e" || command === "EAST"){
 	command = east;
 }
 else if (command === "w" || command === "WEST"){
