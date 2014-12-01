@@ -74,29 +74,14 @@ var locations_10 = new Location(10, "The Front Gate", "You have reached the fron
 
 
 //Items
-var itemPrisonKey = new Item();
-itemPrisonKey.id = 9;
-itemPrisonKey.name = "key";
-itemPrisonKey.description = "There is a Key Here";
-itemPrisonKey.isTaken = false;
+var itemPrisonKey = new Item(9, "key", "There is a Key Here", false);
 
-var itemGuardUniform = new Item();
-itemGuardUniform.id = 6;
-itemGuardUniform.name = "Uniform";
-itemGuardUniform.description = "There is a Uniform Here";
-itemGuardUniform.isTaken = false;
+var itemGuardUniform = new Item(6, "Uniform", "There is a Uniform Here", false);
 
-var itemKitchenKnife = new Item();
-itemKitchenKnife.id = 4;
-itemKitchenKnife.name = "Kitchen Knife"
-itemKitchenKnife.description = "There is a Knife here";
-itemKitchenKnife.isTaken = false;
+var itemKitchenKnife = new Item(4, "Kitchen Knife", "There is a knife here", false);
 
-var itemBeyonce = new Item();
-itemBeyonce.id = 8;
-itemBeyonce.name = "Beyonce"
-itemBeyonce.description = "Beyonce is Here";
-itemBeyonce.isTaken = false;
+var itemBeyonce = new Item(8, "Beyonce", "Beyonce is Here", false);
+
 //Location arrary
 var locations = new Array( locations_0, 
 locations_1, 
