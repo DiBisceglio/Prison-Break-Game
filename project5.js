@@ -13,7 +13,7 @@ var west = 3;
 
 // intiate the game
 function dispMsg(message){
-		var target= document.getElementById("taMain");
+		var target = document.getElementById("taMain");
 		target.value = message + "\n\n" + target.value;
   }
   
@@ -183,16 +183,16 @@ else if (command === "W" || command === "WEST"){
 }
 nextLocation = nav[currentLocation][command];
 
-
+//alert(nextLocation);
 //if (command <= 3) {
 //	if (nextLocation >= 0){
 //	itemCheck
 
 if(typeof command === "number") {
-    if(nextLocation <= 3 && nextLocation >= 0){
+    if(nextLocation >= 0){
         for (var i = 0; i < movementButtons.length; i++){
             var btnDisable = 0;
-            btnDisable = movementButtons_switch[currentLocation][i];
+            btnDisable = movementButtons_switch[nextLocation][i];
             if (btnDisable === 1){
                 document.getElementById(movementButtons[i]).disabled = true;
             } else {
@@ -200,6 +200,7 @@ if(typeof command === "number") {
                 }
             }
         currentLocation = nextLocation;
+        dispMsg(locations[currentLocation]);
     } else if (nextLocation === -1) {
         dispMsg("You can not go that way,");
 	}
