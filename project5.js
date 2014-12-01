@@ -9,8 +9,15 @@ var north = 0;
 var south = 1;
 var east = 2;
 var west = 3;
+var score = 5;
 
-
+function playerHelp(){
+desc = "Use the directional Buttons or type North, South, " + 
+	   "East, West, N, S, E or W in the command bar and press go to move \n\n " +
+	   "You can take items by pressing the take button or typing take in the command bar \n\n" +
+	   "You get 5 points every time that you enter a new room for the first time";	
+dispMsg(desc);
+}
 // intiate the game
 function dispMsg(message){
 		var target = document.getElementById("taMain");
@@ -27,6 +34,7 @@ this.id = _id;
 this.name = _name;
 this.description = _description;
 this.hasItem = _hasItem;
+this.hasVisited = false;
 this.item = function(){
 	if(this.hasItem){
 		return items[currentLocation].description;
@@ -50,10 +58,13 @@ function Item (_id, _name, _description, _isTaken) {
 
 //Locations 0-10'
 var locations_0 = new Location(0, "Prison Yard", "You are standing in the middle of the prison yard.", false );
+locations_0.hasVisited =true;
 
 var locations_1 = new Location(1, "The Gym", "You have reached the gym, there are inmates working out all over.", false);
 
+
 var locations_2 = new Location(2, "The Commissary", "You have reached the commissary, they are having a sale on paper clips!", false);
+
 
 var locations_3 = new Location(3, "The Mail Room", "You enter the mail room, theres no mail there for you.", false );
 
@@ -199,7 +210,13 @@ if(typeof command === "number") {
                 document.getElementById(movementButtons[i]).disabled = false;
                 }
             }
-        currentLocation = nextLocation;
+        
+currentLocation = nextLocation;
+if(!locations[currentLocation].hasVisited){
+	locations[currentLocation].hasVisited = true;
+	score +=5;
+	document.getElementById("scoreBox").value = score;
+	}
         dispMsg(locations[currentLocation]);
     } else if (nextLocation === -1) {
         dispMsg("You can not go that way,");
