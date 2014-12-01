@@ -83,7 +83,7 @@ var itemKitchenKnife = new Item(4, "Kitchen Knife", "There is a knife here", fal
 var itemBeyonce = new Item(8, "Beyonce", "Beyonce is Here", false);
 
 // Items Array 
-var items = new Arrary();
+var items = new Array();
 items[4] = itemKitchenKnife;
 items[6] = itemGuardUniform;
 items[8] = itemBeyonce;
@@ -119,29 +119,22 @@ var nav = new Array(/*  0 1 2 3 */
 			
 var movementButtons = new Array("btnNorth", "btnSouth", "btnEast", "btnWest");
 
-//  function btngo_Click(message) {
-//		var txtCommandElement = document.getElementById("txtCommand");
-//		alert(txtCommandElement.value);
-//	  var userCommand = txtCommandElement.value;
-	//	  userCommand = userCommand.toUpperCase();
+function txtCommand_keyPress(keyboardEvent){
+  if (keyboardEvent.which === 13) { // Enter key
+      btngo_Click();
+   }
+ }
+ 
+  function btnGo_Click(message) {
+		var txtCommandElement = document.getElementById("txtCommand");
+		//alert(txtCommandElement.value);
+	  var userCommand = txtCommandElement.value;
+	  userCommand = userCommand.toUpperCase();
           
      // if(message !== null){
-     //       userCommand = message;
-      //  }
-//		var targetTextArea = document.getElementById("taMain");		
-//	if( userCommand === "N" || userCommand === "NORTH") {
-//		movenorth();
-////		}
-//	else if ( userCommand === "S" || userCommand === "SOUTH" )  {
-//		movesouth();
-//		}
-//	else if( userCommand === "E" || userCommand === "EAST" ) {
-//		moveeast();
-//		}
-//	else if( userCommand === "W" || userCommand === "WEST")   {
-//		movewest()
-//	 }
-//}
+           userCommand = message;
+        }
+
 
 function btn_command(command){
 	if (command === "n" || command === "NORTH"){
@@ -156,6 +149,6 @@ else if (command === "e" || command === "EAST"){
 else if (command === "w" || command === "WEST"){
 	command = west;
 }
+nextLocation = nav[currentLocation][command];
 }
 
-nextLocation - nav[currentLocation][command];
