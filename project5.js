@@ -54,7 +54,12 @@ function Item (_id, _name, _description, _isTaken) {
 	this.name = _name;
 	this.description = _description;
 	this.isTaken = _isTaken;
+	this.toString = function() {		
+		var returnVal = this.description + " " + this.item();
+		return returnVal;
+	}
 }
+	
 
 //Locations 0-10'
 var locations_0 = new Location(0, "Prison Yard", "You are standing in the middle of the prison yard.", false );
@@ -107,6 +112,12 @@ var msg = "Inventory " + inventory;
 dispMsg(msg);
 }
 
+function takeItem(item){
+	inventory.push(items[currentLocation].name);
+	dispMsg("Taken " + items[currentLocation].name + ".");
+	items[currentLocation].isTaken = true;
+}
+
 //Location arrary
 var locations = new Array( locations_0, 
 locations_1, 
@@ -128,10 +139,10 @@ var nav = new Array(/*  0 1 2 3 */
 			/* 3 */  [ -1, -1, 0, -1],
 			/*  4 */ [ 6, 7, 8, 0],
 			/*  5 */ [ 2, -1, -1, -1],
-			/* 6  */ [ -1, 4, 1, -1],
+			/* 6  */ [ -1, 4, 1, 1],
 			/* 7  */ [ 4, -1, -1, -1],
 			/*  8 */ [-1, 10, -1, 4],
-			/*  9 */ [-1, -1, -1, 1],
+			/*  9 */ [-1, -1, 1, -1],
 			/* 10 */ [ 8, -1, -1, -1]
 			);
 			
@@ -228,5 +239,16 @@ else if (command === "INVENTORY"){
 else if (command === "H" || command === "HELP") {
 	playerHelp();
 }
-}
 
+else if (nextLocation == undefined && command === "TAKE" || command === "T"){
+	if (locations[currentLocation].hasItem){
+		takeItem(items[currentLocation]);
+		locations[currentLocation].hasItem = false;
+	}
+else if (!locations[currentLocation].hasItem) {
+	dispMsg("There is nothing for you to take here.");
+	}
+} else {
+	dispMsg("That is an invalid command!. Try pressing Help.");
+	}
+}
