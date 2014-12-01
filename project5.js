@@ -28,15 +28,14 @@ this.name = _name;
 this.description = _description;
 this.hasItem = _hasItem;
 this.item = function(){
-	if(this.hasItem && locations[nextLocation]){
-		return items[nextLocation].description;
+	if(this.hasItem){
+		return items[currentLocation].description;
 	} else {
 		return "";
 	}
 }
-	this.toString = function() {
-		var returnValue = "";
-		returnVal = this.description + " " + this.item();
+	this.toString = function() {		
+		var returnVal = this.description + " " + this.item();
 		return returnVal;
 	}
 }
@@ -181,7 +180,7 @@ else if (command === "W" || command === "WEST"){
 		command = west;
 }
 nextLocation = nav[currentLocation][command];
-}
+
 
 //if (command <= 3) {
 //	if (nextLocation >= 0){
@@ -196,4 +195,4 @@ for (var i = 0; i < movementButtons.length; i++){
 		document.getElementById(movementButtons[i]).disabled = false;
 		}
 	}
-
+}
