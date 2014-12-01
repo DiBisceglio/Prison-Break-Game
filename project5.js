@@ -87,11 +87,11 @@ var locations_10 = new Location(10, "The Front Gate", "You have reached the fron
 
 
 //Items
-var itemPrisonKey = new Item(9, "key", "There is a Key Here, you should probably take this, it seems important.", false);
+var itemPrisonKey = new Item(9, "key", "There is a key here, you should probably take this, it seems important.", false);
 
-var itemGuardUniform = new Item(6, "Uniform", ",and There is a Uniform Here sitting there for the taking.", false);
+var itemGuardUniform = new Item(6, "Uniform", "There is a uniform here sitting there for the taking.", false);
 
-var itemKitchenKnife = new Item(4, "Kitchen Knife", "and There is a knife on the floor that you could take.", false);
+var itemKitchenKnife = new Item(4, "Kitchen Knife", "and there is a knife on the floor that you could take.", false);
 
 var itemBeyonce = new Item(8, "Beyonce", "and Beyonce is Here; is willing to come along with you.", false);
 
@@ -227,7 +227,7 @@ if(!locations[currentLocation].hasVisited){
         dispMsg("You can not go that way,");
 	}
 }
-else if (command === "INVENTORY"){
+else if (command === "INVENTORY" || command === "I" ){
 	btn_displayInventory();
 }
 else if (command === "H" || command === "HELP") {
