@@ -7,8 +7,8 @@ var currentLocation = 0;
 var nextLocation = 0;
 var north = 0;
 var south = 1;
-var west = 2;
-var east = 3;
+var east = 2;
+var west = 3;
 
 
 // intiate the game
@@ -77,8 +77,8 @@ locations_3.hasItem = false;
 var locations_4 = new Location();
 locations_4.id = 4;
 locations_4.name = "Mess Hall";
-locations_4.description = "You have entered the mess hall, the food smells terrible.";
-locations_4.hasItem = false;
+locations_4.description = "You have entered the mess hall, the food smells terrible but you find a knife on the floor.";
+locations_4.hasItem = true;
 
 var locations_5 = new Location();
 locations_5.id = 5;
@@ -101,8 +101,8 @@ locations_7.hasItem = false;
 var locations_8 = new Location();
 locations_8.id = 8;
 locations_8.name = "The Classroom";
-locations_8.description = "You have entered the class room, there is a Beyonce Contert playing on the TV.";
-locations_8.hasItem = false;
+locations_8.description = "You have entered the class room, and Beyonce is standing there.";
+locations_8.hasItem = true;
 
 var locations_9 = new Location();
 locations_9.id = 7;
@@ -120,15 +120,26 @@ locations_10.hasItem = false;
 var itemPrisonKey = new Item();
 itemPrisonKey.id = 9;
 itemPrisonKey.name = "key";
-itemPrisonKey.description = "";
+itemPrisonKey.description = "There is a Key Here";
 itemPrisonKey.isTaken = false;
 
 var itemGuardUniform = new Item();
 itemGuardUniform.id = 6;
 itemGuardUniform.name = "Uniform";
-itemGuardUniform.description = "";
+itemGuardUniform.description = "There is a Uniform Here";
 itemGuardUniform.isTaken = false;
 
+var itemKitchenKnife = new Item();
+itemKitchenKnife.id = 4;
+itemKitchenKnife.name = "Kitchen Knife"
+itemKitchenKnife.description = "There is a Knife here";
+itemKitchenKnife.isTaken = false;
+
+var itemBeyonce = new Item();
+itemBeyonce.id = 8;
+itemBeyonce.name = "Beyonce"
+itemBeyonce.description = "Beyonce is Here";
+itemBeyonce.isTaken = false;
 //Location arrary
 var locations = new Array( locations_0, 
 locations_1, 
@@ -144,16 +155,58 @@ locations_10) ;
 							
 // navigation
 var nav = new Array(/*  0 1 2 3 */
-			/* 0 */  [  1, 2, 3, 4 ],   
-			/* 1 */  [  -1, 0, 9, 6],
+			/* 0 */  [  1, 2, 4, 3 ],   
+			/* 1 */  [  -1, 0, 6, 9],
 		    /* 2 */  [ 0, 5, -1, -1],
-			/* 3 */  [ -1, -1, -1, 0],
-			/*  4 */ [ 6, 7, 0, 8],
+			/* 3 */  [ -1, -1, 0, -1],
+			/*  4 */ [ 6, 7, 8, 0],
 			/*  5 */ [ 2, -1, -1, -1],
 			/* 6  */ [ -1, 4, 1, -1],
 			/* 7  */ [ 4, -1, -1, -1],
-			/*  8 */ [-1, 10, 4, -1],
+			/*  8 */ [-1, 10, -1, 4],
 			/*  9 */ [-1, -1, -1, 1],
 			/* 10 */ [ 8, -1, -1, -1]
 			);
 			
+var movementButtons = new Array("btnNorth", "btnSouth", "btnEast", "btnWest");
+
+//  function btngo_Click(message) {
+//		var txtCommandElement = document.getElementById("txtCommand");
+//		alert(txtCommandElement.value);
+//	  var userCommand = txtCommandElement.value;
+	//	  userCommand = userCommand.toUpperCase();
+          
+     // if(message !== null){
+     //       userCommand = message;
+      //  }
+//		var targetTextArea = document.getElementById("taMain");		
+//	if( userCommand === "N" || userCommand === "NORTH") {
+//		movenorth();
+////		}
+//	else if ( userCommand === "S" || userCommand === "SOUTH" )  {
+//		movesouth();
+//		}
+//	else if( userCommand === "E" || userCommand === "EAST" ) {
+//		moveeast();
+//		}
+//	else if( userCommand === "W" || userCommand === "WEST")   {
+//		movewest()
+//	 }
+//}
+
+function btn_command(command){
+	if (command === "n" || command === "NORTH"){
+	command = north;
+} 
+else if (commandt === "s" || command === "SOUTH"){
+	command = south;
+}
+else if (movement === "e" || command === "EAST"){
+	command = east;
+}
+else if (command === "w" || command === "WEST"){
+	command = west;
+}
+}
+
+nextLocation - nav[currentLocation][command];
