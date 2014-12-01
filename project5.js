@@ -149,18 +149,20 @@ var movementButtons_switch = new Array(/* 0  1  2  3  */
 								
 function txtCommand_keyPress(keyboardEvent){
   if (keyboardEvent.which === 13) { // Enter key
-      btngo_Click();
+      btnGo_Click();
    }
  }
  
   function btnGo_Click(message) {
+		
 		var txtCommandElement = document.getElementById("txtCommand");
 		//alert(txtCommandElement.value);
 	  var userCommand = txtCommandElement.value;
 	  //command = userCommand.toUpperCase();
           
      // if(message !== null){
-           userCommand = message;
+     //    userCommand = message;
+	 btn_command(userCommand);
         }
 
 
@@ -186,13 +188,27 @@ nextLocation = nav[currentLocation][command];
 //	if (nextLocation >= 0){
 //	itemCheck
 
-for (var i = 0; i < movementButtons.length; i++){
-	var btnDisable = 0;
-	btnDisable = movementButtons_switch[currentLocation][i];
-	if (btnDisable === 1){
-		document.getElementById(movementButtons[i]).disabled = true;
-	} else {
-		document.getElementById(movementButtons[i]).disabled = false;
-		}
+if(typeof command === "number") {
+    if(nextLocation <= 3 && nextLocation >= 0){
+        for (var i = 0; i < movementButtons.length; i++){
+            var btnDisable = 0;
+            btnDisable = movementButtons_switch[currentLocation][i];
+            if (btnDisable === 1){
+                document.getElementById(movementButtons[i]).disabled = true;
+            } else {
+                document.getElementById(movementButtons[i]).disabled = false;
+                }
+            }
+        currentLocation = nextLocation;
+    } else if (nextLocation === -1) {
+        dispMsg("You can not go that way,");
 	}
 }
+else if (command === "INVENTORY"){
+	btn_displayInventory();
+}
+else if (command === "help") {
+	help();
+}
+}
+
