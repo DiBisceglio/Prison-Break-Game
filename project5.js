@@ -93,7 +93,7 @@ items[9] = itemPrisonKey;
 var inventory = new Array();
 
 function btn_displayInventory(){
-var msg = "Invetory " = invetory;
+var msg = "Inventory " + inventory;
 dispMsg(msg);
 }
 
@@ -127,6 +127,27 @@ var nav = new Array(/*  0 1 2 3 */
 			
 var movementButtons = new Array("btnNorth", "btnSouth", "btnEast", "btnWest");
 
+// button disable
+var movementButtons_switch = new Array(/* 0  1  2  3  */
+								/*0*/     [0,  0,  0,  0],
+								/*1*/     [1,  0,  0,  0],
+								/*2*/     [0,  0,  1,  1],
+								/*3*/     [1,  1,  0,  1],
+								/*4*/     [0,  0, 0,  0],
+								/*5*/     [0,  1,  1,  1],
+								/*6*/     [1,  0,  1,  0],
+								/*7*/     [0,  1,  1,  1],
+								/*8*/     [1,  0,  1,  0],
+								/*9*/     [1,  1,  0,  1],
+								/*10*/    [0,  1,  1,  1]
+								);
+								
+								
+								
+								
+								
+								
+								
 function txtCommand_keyPress(keyboardEvent){
   if (keyboardEvent.which === 13) { // Enter key
       btngo_Click();
@@ -137,7 +158,7 @@ function txtCommand_keyPress(keyboardEvent){
 		var txtCommandElement = document.getElementById("txtCommand");
 		//alert(txtCommandElement.value);
 	  var userCommand = txtCommandElement.value;
-	  userCommand = userCommand.toUpperCase();
+	  //command = userCommand.toUpperCase();
           
      // if(message !== null){
            userCommand = message;
@@ -145,18 +166,34 @@ function txtCommand_keyPress(keyboardEvent){
 
 
 function btn_command(command){
-	if (command === "n" || command === "NORTH"){
-	command = north;
+	
+	command = command.toUpperCase();
+	if (command === "N" || command === "NORTH"){
+		command = north;
 } 
-else if (command === "s" || command === "SOUTH"){
-	command = south;
+else if (command === "S" || command === "SOUTH"){
+		command = south;
 }
-else if (command === "e" || command === "EAST"){
-	command = east;
+else if (command === "E" || command === "EAST"){
+		command = east;
 }
-else if (command === "w" || command === "WEST"){
-	command = west;
+else if (command === "W" || command === "WEST"){
+		command = west;
 }
 nextLocation = nav[currentLocation][command];
 }
+
+//if (command <= 3) {
+//	if (nextLocation >= 0){
+//	itemCheck
+
+for (var i = 0; i < movementButtons.length; i++){
+	var btnDisable = 0;
+	btnDisable = movementButtons_switch[currentLocation][i];
+	if (btnDisable === 1){
+		document.getElementById(movementButtons[i]).disabled = true;
+	} else {
+		document.getElementById(movementButtons[i]).disabled = false;
+		}
+	}
 
