@@ -67,9 +67,7 @@ locations_0.hasVisited =true;
 
 var locations_1 = new Location(1, "The Gym", "You have reached the gym, there are inmates working out all over.", false);
 
-
 var locations_2 = new Location(2, "The Commissary", "You have reached the commissary, they are having a sale on paper clips!", false);
-
 
 var locations_3 = new Location(3, "The Mail Room", "You enter the mail room, theres no mail there for you.", false );
 
