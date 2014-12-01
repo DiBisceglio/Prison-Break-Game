@@ -89,6 +89,14 @@ items[6] = itemGuardUniform;
 items[8] = itemBeyonce;
 items[9] = itemPrisonKey;
 
+//inventory array
+var inventory = new Array();
+
+function btn_displayInventory(){
+var msg = "Invetory " = invetory;
+dispMsg(msg);
+}
+
 //Location arrary
 var locations = new Array( locations_0, 
 locations_1, 

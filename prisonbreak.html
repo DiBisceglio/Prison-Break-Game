@@ -28,8 +28,8 @@
 	<input type = "button" id = "btnEast"  value = "East"  onclick = "btn_command(east);"/>
 	<input type = "button" id = "btnWest"  value = "West"  onclick = "btn_command(west);"/>
 	<input type = "button" id = "btnHelp"  value = "Help"  onclick = "playerHelp();"/>
-	<input type = "button" id = "btnTake"  value = "Take"  onclick = "btngo_Click('TAKE');"/>
-	<input type = "button" id = "btnBag"   value = "Inventory" onclick = "btngo_Click('INVENTORY');"/>
+	<input type = "button" id = "btnTake"  value = "Take"  onclick = "btnGo_Click('TAKE');"/>
+	<input type = "button" id = "btnBag"   value = "Inventory" onclick = "btn_displayInvetory"/>
  <br>
  
  <font size ="5.5" color="orange">Score: </font><textarea rows = "1" cols = "5" id = "scoreBox" readonly ></textarea>
@@ -48,7 +48,7 @@
 	<input type = "button"
 		   id = "btnGo"
 		   value = "go"
-		   onclick="btngo_Click();" /> 
+		   onclick="btnGo_Click();" /> 
 	<p>
 <font size ="5.5" color="orange">	Stuck? Contact an Admin </font><a href="mailto:Scott.DiBisceglio1@marist.edu" target="_blank">here</a>.
     </p>
