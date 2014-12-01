@@ -73,29 +73,29 @@ var locations_2 = new Location(2, "The Commissary", "You have reached the commis
 
 var locations_3 = new Location(3, "The Mail Room", "You enter the mail room, theres no mail there for you.", false );
 
-var locations_4 = new Location(4, "Mess Hall", "You have entered the mess hall, the food smells terrible but you find a knife on the floor.", true);
+var locations_4 = new Location(4, "Mess Hall", "You have entered the mess hall, the food smells terrible.", true);
 
 var locations_5 = new Location(5, "Visiting Room", "You have entered the visiting room, no ever comes to visit you though.", false);
 
-var locations_6 = new Location(6, "The Laundry Room", "You have entered the laundry room, there is a guards uniform on the table.", true);
+var locations_6 = new Location(6, "The Laundry Room", "You have entered the laundry room.", true);
 
 var locations_7 = new Location(7, "The Warden's Office", "You have reached the Wardens Office, theres nothing here.", false );
 
-var locations_8 = new Location(8, "The Classroom", "You have entered the class room, and Beyonce is standing there.", true);
+var locations_8 = new Location(8, "The Classroom", "You have entered the class room.", true);
 
-var locations_9 = new Location(9, "The Garden", "You have entered the garden, you see a shiny key behind the tomato plants.", true);
+var locations_9 = new Location(9, "The Garden", "You have entered the garden, there are so many plants.", true);
 
 var locations_10 = new Location(10, "The Front Gate", "You have reached the front gate, you can see a light at the end that leads to freeedom.", false);
 
 
 //Items
-var itemPrisonKey = new Item(9, "key", "There is a Key Here", false);
+var itemPrisonKey = new Item(9, "key", "There is a Key Here, you should probably take this, it seems important.", false);
 
-var itemGuardUniform = new Item(6, "Uniform", "There is a Uniform Here", false);
+var itemGuardUniform = new Item(6, "Uniform", ",and There is a Uniform Here sitting there for the taking.", false);
 
-var itemKitchenKnife = new Item(4, "Kitchen Knife", "There is a knife here", false);
+var itemKitchenKnife = new Item(4, "Kitchen Knife", "and There is a knife on the floor that you could take.", false);
 
-var itemBeyonce = new Item(8, "Beyonce", "Beyonce is Here", false);
+var itemBeyonce = new Item(8, "Beyonce", "and Beyonce is Here; is willing to come along with you.", false);
 
 // Items Array 
 var items = new Array();
@@ -107,6 +107,7 @@ items[9] = itemPrisonKey;
 //inventory array
 var inventory = new Array();
 
+// should display inventory
 function btn_displayInventory(){
 var msg = "Inventory " + inventory;
 dispMsg(msg);
@@ -132,35 +133,35 @@ locations_9,
 locations_10) ;
 							
 // navigation
-var nav = new Array(/*  0 1 2 3 */
-			/* 0 */  [  1, 2, 4, 3 ],   
-			/* 1 */  [  -1, 0, 6, 9],
-		    /* 2 */  [ 0, 5, -1, -1],
+var nav = new Array(/*  0  1   2  3 */
+			/* 0 */  [  1, 2, 4,  3 ],   
+			/* 1 */  [  -1, 0, 6,  9],
+		    /* 2 */  [ 0,  5, -1, -1],
 			/* 3 */  [ -1, -1, 0, -1],
-			/*  4 */ [ 6, 7, 8, 0],
+			/*  4 */ [ 6,  7,  8,  0],
 			/*  5 */ [ 2, -1, -1, -1],
-			/* 6  */ [ -1, 4, 1, 1],
+			/* 6  */ [ -1, 4, 1,   1],
 			/* 7  */ [ 4, -1, -1, -1],
-			/*  8 */ [-1, 10, -1, 4],
-			/*  9 */ [-1, -1, 1, -1],
+			/*  8 */ [-1, 10, -1,  4],
+			/*  9 */ [-1, -1, 1,  -1],
 			/* 10 */ [ 8, -1, -1, -1]
 			);
 			
 var movementButtons = new Array("btnNorth", "btnSouth", "btnEast", "btnWest");
 
 // button disable
-var movementButtons_switch = new Array(/* 0  1  2  3  */
-								/*0*/     [0,  0,  0,  0],
-								/*1*/     [1,  0,  0,  0],
-								/*2*/     [0,  0,  1,  1],
-								/*3*/     [1,  1,  0,  1],
-								/*4*/     [0,  0, 0,  0],
-								/*5*/     [0,  1,  1,  1],
-								/*6*/     [1,  0,  1,  0],
-								/*7*/     [0,  1,  1,  1],
-								/*8*/     [1,  0,  1,  0],
-								/*9*/     [1,  1,  0,  1],
-								/*10*/    [0,  1,  1,  1]
+var movementButtons_switch = new Array(/*    0  1  2  3  */
+								/*0*/     [0,  0,  0,   0],
+								/*1*/     [1,  0,  0,   0],
+								/*2*/     [0,  0,  1,   1],
+								/*3*/     [1,  1,  0,   1],
+							   /*4*/      [0,  0,  0,   0],
+								/*5*/     [0,  1,  1,   1],
+								/*6*/     [1,  0,  1,   0],
+								/*7*/     [0,  1,  1,   1],
+								/*8*/     [1,  0,  1,   0],
+								/*9*/     [1,  1,  0,   1],
+								/*10*/    [0,  1,  1,   1]
 								);
 								
 								
@@ -204,11 +205,6 @@ else if (command === "W" || command === "WEST"){
 		command = west;
 }
 nextLocation = nav[currentLocation][command];
-
-//alert(nextLocation);
-//if (command <= 3) {
-//	if (nextLocation >= 0){
-//	itemCheck
 
 if(typeof command === "number") {
     if(nextLocation >= 0){
