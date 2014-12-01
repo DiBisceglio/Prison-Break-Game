@@ -225,8 +225,8 @@ if(!locations[currentLocation].hasVisited){
 else if (command === "INVENTORY"){
 	btn_displayInventory();
 }
-else if (command === "help") {
-	help();
+else if (command === "H" || command === "HELP") {
+	playerHelp();
 }
 }
 
