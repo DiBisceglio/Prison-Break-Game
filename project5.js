@@ -87,6 +87,8 @@ var locations_10 = new Location(10, "The Front Gate", "You have reached the fron
 
 var locations_11 = new Location(11, "The Wardens Closet", "This is the Warden's secret Closet", true);
 
+var locations_12 = new Location(12, "The Outisde", "You have made your way out of the prison, You are Free!", false);
+
 //Items
 var itemPrisonKey = new Item(9, "key", "There is a key here, you should probably take this, it seems important.", false);
 
@@ -130,7 +132,8 @@ locations_7,
 locations_8, 
 locations_9,
 locations_10,
-locations_11
+locations_11,
+locations_12
 ) ;
 							
 // navigation
@@ -145,8 +148,9 @@ var nav = new Array(/*  0  1   2  3 */
 			/* 7  */ [ 4, -2, -1, -1],
 			/*  8 */ [-1, 10, -1,  4],
 			/*  9 */ [-1, -1, 1,  -1],
-			/* 10 */ [ 8, -1, -1, -1],
-			/* 11 */ [ 7, -1, -1, -1]
+			/* 10 */ [ 8, -3, -1, -1],
+			/* 11 */ [ 7, -1, -1, -1],
+			/* 12 */ [ 10, -1, -1, -1]
 			);
 			
 			
@@ -165,8 +169,9 @@ var movementButtons_switch = new Array(/*    0  1  2  3  */
 								/*7*/     [0,  0,  1,   1],
 								/*8*/     [1,  0,  1,   0],
 								/*9*/     [1,  1,  0,   1],
-								/*10*/    [0,  1,  1,   1],
-								/*11*/    [0,  1,  1,   1]
+								/*10*/    [0,  0,  1,   1],
+								/*11*/    [0,  1,  1,   1],
+								/* 12*/   [0,  1,  1,   1]
 								);
 								
 								
@@ -233,17 +238,19 @@ if(!locations[currentLocation].hasVisited){
     } else if (nextLocation === -1) {
         dispMsg("You can not go that way,");
 	} else if (nextLocation === -2) {
-		//dispMsg("This door is Locked");
-		
 		if(itemPrisonKey.isTaken){
-		currentLocation = 11;
-		dispMsg(locations[11]);
-		currentLocation = 11;
-	} else {
-		dispMsg("This door is Locked, look for the Key");
-	}
-		
-		
+			currentLocation = 11;
+			dispMsg(locations[11]);
+		} else {
+			dispMsg("This door is Locked, look for the Key");
+		}
+	}else if (nextLocation === -3) {
+		if(itemBeyonce.isTaken  && itemGuardUniform.isTaken){
+			currentLocation = 12;
+			dispMsg(locations[12]);
+		} else {
+			dispMsg("Can't Escape need more items");
+		}
 	}
 }
 
