@@ -77,14 +77,15 @@ var locations_5 = new Location(5, "Visiting Room", "You have entered the visitin
 
 var locations_6 = new Location(6, "The Laundry Room", "You have entered the laundry room.", true);
 
-var locations_7 = new Location(7, "The Warden's Office", "You have reached the Wardens Office, theres nothing here.", false );
+var locations_7 = new Location(7, "The Warden's Office", "You have entered the Warden's Office, there is a closet in the back. You should go check it out.", false );
 
-var locations_8 = new Location(8, "The Classroom", "You have entered the class room.", true);
+var locations_8 = new Location(8, "The Classroom", "You have entered the class room.", false);
 
 var locations_9 = new Location(9, "The Garden", "You have entered the garden, there are so many plants.", true);
 
 var locations_10 = new Location(10, "The Front Gate", "You have reached the front gate, you can see a light at the end that leads to freeedom.", false);
 
+var locations_11 = new Location(11, "The Wardens Closet", "The Screams have gotten Louder, Something or someone is locked inside", true);
 
 //Items
 var itemPrisonKey = new Item(9, "key", "There is a key here, you should probably take this, it seems important.", false);
@@ -93,13 +94,13 @@ var itemGuardUniform = new Item(6, "Uniform", "There is a uniform here sitting t
 
 var itemKitchenKnife = new Item(4, "Kitchen Knife", "and there is a knife on the floor that you could take.", false);
 
-var itemBeyonce = new Item(8, "Beyonce", "and Beyonce is Here; is willing to come along with you.", false);
+var itemBeyonce = new Item(11, "Beyonce", "It's Beyonce.", false);
 
 // Items Array 
 var items = new Array();
 items[4] = itemKitchenKnife;
 items[6] = itemGuardUniform;
-items[8] = itemBeyonce;
+items[11] = itemBeyonce;
 items[9] = itemPrisonKey;
 
 //inventory array
@@ -128,7 +129,9 @@ locations_6,
 locations_7, 
 locations_8, 
 locations_9,
-locations_10) ;
+locations_10,
+locations_11
+) ;
 							
 // navigation
 var nav = new Array(/*  0  1   2  3 */
@@ -139,11 +142,14 @@ var nav = new Array(/*  0  1   2  3 */
 			/*  4 */ [ 6,  7,  8,  0],
 			/*  5 */ [ 2, -1, -1, -1],
 			/* 6  */ [ -1, 4, 1,   1],
-			/* 7  */ [ 4, -1, -1, -1],
+			/* 7  */ [ 4, -2, -1, -1],
 			/*  8 */ [-1, 10, -1,  4],
 			/*  9 */ [-1, -1, 1,  -1],
-			/* 10 */ [ 8, -1, -1, -1]
+			/* 10 */ [ 8, -1, -1, -1],
+			/* 11 */ [ 7, -1, -1, -1]
 			);
+			
+			
 			
 var movementButtons = new Array("btnNorth", "btnSouth", "btnEast", "btnWest");
 
@@ -156,10 +162,11 @@ var movementButtons_switch = new Array(/*    0  1  2  3  */
 							   /*4*/      [0,  0,  0,   0],
 								/*5*/     [0,  1,  1,   1],
 								/*6*/     [1,  0,  1,   0],
-								/*7*/     [0,  1,  1,   1],
+								/*7*/     [0,  0,  1,   1],
 								/*8*/     [1,  0,  1,   0],
 								/*9*/     [1,  1,  0,   1],
-								/*10*/    [0,  1,  1,   1]
+								/*10*/    [0,  1,  1,   1],
+								/*11*/    [0,  1,  1,   1]
 								);
 								
 								
@@ -225,8 +232,11 @@ if(!locations[currentLocation].hasVisited){
         dispMsg(locations[currentLocation]);
     } else if (nextLocation === -1) {
         dispMsg("You can not go that way,");
+	} else if (nextLocation === -2) {
+		dispMsg("This door is Locked");
 	}
 }
+
 else if (command === "INVENTORY" || command === "I" ){
 	btn_displayInventory();
 }
@@ -244,5 +254,15 @@ else if (!locations[currentLocation].hasItem) {
 	}
 } else {
 	dispMsg("That is an invalid command!. Try pressing Help.");
+	}
+}
+
+// puzzle to pick up items in right order
+if(nextLocation === 11){
+	if(itemPrisonKey.isTaken = true){
+		dispMsg(locations[nextLocation]);
+		currentLocation = nextLocation;
+	} else {
+		dispMsg("Look for the Key");
 	}
 }
