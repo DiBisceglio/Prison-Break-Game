@@ -85,7 +85,7 @@ var locations_9 = new Location(9, "The Garden", "You have entered the garden, th
 
 var locations_10 = new Location(10, "The Front Gate", "You have reached the front gate, you can see a light at the end that leads to freeedom.", false);
 
-var locations_11 = new Location(11, "The Wardens Closet", "The Screams have gotten Louder, Something or someone is locked inside", true);
+var locations_11 = new Location(11, "The Wardens Closet", "This is the Warden's secret Closet", true);
 
 //Items
 var itemPrisonKey = new Item(9, "key", "There is a key here, you should probably take this, it seems important.", false);
@@ -94,7 +94,7 @@ var itemGuardUniform = new Item(6, "Uniform", "There is a uniform here sitting t
 
 var itemKitchenKnife = new Item(4, "Kitchen Knife", "and there is a knife on the floor that you could take.", false);
 
-var itemBeyonce = new Item(11, "Beyonce", "It's Beyonce.", false);
+var itemBeyonce = new Item(11, "Beyonce", "You hear a scream from behind the loocked door! It's Beyonce.", false);
 
 // Items Array 
 var items = new Array();
@@ -233,7 +233,17 @@ if(!locations[currentLocation].hasVisited){
     } else if (nextLocation === -1) {
         dispMsg("You can not go that way,");
 	} else if (nextLocation === -2) {
-		dispMsg("This door is Locked");
+		//dispMsg("This door is Locked");
+		
+		if(itemPrisonKey.isTaken){
+		currentLocation = 11;
+		dispMsg(locations[11]);
+		currentLocation = 11;
+	} else {
+		dispMsg("This door is Locked, look for the Key");
+	}
+		
+		
 	}
 }
 
@@ -258,11 +268,11 @@ else if (!locations[currentLocation].hasItem) {
 }
 
 // puzzle to pick up items in right order
-if(nextLocation === 11){
-	if(itemPrisonKey.isTaken = true){
-		dispMsg(locations[nextLocation]);
-		currentLocation = nextLocation;
-	} else {
-		dispMsg("Look for the Key");
-	}
-}
+// if(nextLocation === -2){
+	// if(itemPrisonKey.isTaken){
+		// dispMsg(locations[nextLocation]);
+		// currentLocation = nextLocation;
+	// } else {
+		// dispMsg("Look for the Key");
+	// }
+// }
