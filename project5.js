@@ -137,20 +137,20 @@ locations_12
 ) ;
 							
 // navigation
-var nav = new Array(/*  0  1   2  3 */
-			/* 0 */  [  1, 2, 4,  3 ],   
-			/* 1 */  [  -1, 0, 6,  9],
-		    /* 2 */  [ 0,  5, -1, -1],
-			/* 3 */  [ -1, -1, 0, -1],
-			/*  4 */ [ 6,  7,  8,  0],
-			/*  5 */ [ 2, -1, -1, -1],
-			/* 6  */ [ -1, 4, 1,   1],
-			/* 7  */ [ 4, -2, -1, -1],
-			/*  8 */ [-1, 10, -1,  4],
-			/*  9 */ [-1, -1, 1,  -1],
-			/* 10 */ [ 8, -3, -1, -1],
-			/* 11 */ [ 7, -1, -1, -1],
-			/* 12 */ [ 10, -1, -1, -1]
+var nav = new Array(/*  0   1   2   3 */
+			/* 0 */  [  1,  2,   4,  3],   
+			/* 1 */  [  -1, 0,  6,   9],
+		    /* 2 */  [ 0,   5,  -1, -1],
+			/* 3 */  [ -1, -1,  0,  -1],
+			/*  4 */ [ 6,  7,   8,   0],
+			/*  5 */ [ 2, -1,  -1,  -1],
+			/* 6  */ [ -1, 4,   1,   1],
+			/* 7  */ [ 4, -2,  -1,  -1],
+			/*  8 */ [-1, 10,  -1,   4],
+			/*  9 */ [-1, -1,   1,  -1],
+			/* 10 */ [ 8, -3,  -1,  -1],
+			/* 11 */ [ 7,  -1,  -1, -1],
+			/* 12 */ [ 10,  -1, -1, -1]
 			);
 			
 			
@@ -188,33 +188,27 @@ function txtCommand_keyPress(keyboardEvent){
  
   function btnGo_Click(message) {
 		
-		var txtCommandElement = document.getElementById("txtCommand");
-		//alert(txtCommandElement.value);
-	  var userCommand = txtCommandElement.value;
-	  //command = userCommand.toUpperCase();
-          
-     // if(message !== null){
-     //    userCommand = message;
-	 btn_command(userCommand);
+	var txtCommandElement = document.getElementById("txtCommand");		
+	var userCommand = txtCommandElement.value;
+	 	btn_command(userCommand);
         }
 
 
-function btn_command(command){
-	
+function btn_command(command){	
 	command = command.toUpperCase();
 	if (command === "N" || command === "NORTH"){
 		command = north;
-} 
-else if (command === "S" || command === "SOUTH"){
-		command = south;
-}
-else if (command === "E" || command === "EAST"){
-		command = east;
-}
-else if (command === "W" || command === "WEST"){
-		command = west;
-}
-nextLocation = nav[currentLocation][command];
+	} 
+		else if (command === "S" || command === "SOUTH"){
+			command = south;
+	}
+		else if (command === "E" || command === "EAST"){
+			command = east;
+	}
+		else if (command === "W" || command === "WEST"){
+			command = west;
+	}	
+			nextLocation = nav[currentLocation][command];
 
 if(typeof command === "number") {
     if(nextLocation >= 0){
@@ -274,12 +268,3 @@ else if (!locations[currentLocation].hasItem) {
 	}
 }
 
-// puzzle to pick up items in right order
-// if(nextLocation === -2){
-	// if(itemPrisonKey.isTaken){
-		// dispMsg(locations[nextLocation]);
-		// currentLocation = nextLocation;
-	// } else {
-		// dispMsg("Look for the Key");
-	// }
-// }
