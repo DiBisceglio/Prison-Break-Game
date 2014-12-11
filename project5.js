@@ -1,6 +1,6 @@
-// Project 5
+// Project 5 & 6
 // navigation2.js
-
+// Scott DiBisceglio
 
 // global variables for movement in game
 var currentLocation = 0;
@@ -25,7 +25,7 @@ function dispMsg(message){
   }
   
 function init(){
-dispMsg(locations_0);
+dispMsg(locations[currentLocation]);
 }
 
 //location prototype
